@@ -74,12 +74,19 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
                     states.contains(transition.getTargetState()) //target state is defined
                     ) {
                 try {
+                    boolean isNormal = true;
                     //perform action, if any
                     if (transition.getEventHandler() != null) {
-                        transition.getEventHandler().handleEvent(event);
+                        isNormal = transition.getEventHandler().handleEvent(event);
                     }
-                    //transit to target state
-                    currentState = transition.getTargetState();
+                    if(isNormal) {
+                        //transit to target state
+                        currentState = transition.getTargetState();
+                    } else {
+                        //transit to abnormal state
+                        currentState = transition.getAbnormalState();
+                    }
+
 
                     //save last triggered event and transition
                     lastEvent = event;

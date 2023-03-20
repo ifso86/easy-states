@@ -34,6 +34,7 @@ final class TransitionImpl<E extends Event> implements Transition {
     private String name;
     private State sourceState;
     private State targetState;
+    private State abnormalState;
     private Class<E> eventType;
     private EventHandler<E> eventHandler;
 
@@ -55,6 +56,15 @@ final class TransitionImpl<E extends Event> implements Transition {
 
     public void setTargetState(State targetState) {
         this.targetState = targetState;
+    }
+
+    @Override
+    public State getAbnormalState() {
+        return abnormalState;
+    }
+
+    public void setAbnormalState(State abnormalState) {
+        this.abnormalState = abnormalState;
     }
 
     public String getName() {

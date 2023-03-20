@@ -82,6 +82,16 @@ public class TransitionBuilder {
     }
 
     /**
+     * Set the abnormal state of the transition.
+     * @param abnormalState of the transition
+     * @return FSM transition builder
+     */
+    public TransitionBuilder abnormalState(final State abnormalState) {
+        transition.setAbnormalState(abnormalState);
+        return this;
+    }
+
+    /**
      * Set event type upon which the transition should be triggered.
      * @param eventType of the transition
      * @return FSM transition builder

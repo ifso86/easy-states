@@ -50,6 +50,12 @@ public interface Transition  {
     State getTargetState();
 
     /**
+     * Return abnormal target state.
+     * @return abnormal target state
+     */
+    State getAbnormalState();
+
+    /**
      * Return fired event type upon which the transition should be made.
      * @return Event type class
      */

@@ -33,8 +33,9 @@ public interface EventHandler<E extends Event> {
     /**
      * Action method to execute when an event occurs.
      * @param event the triggered event
+     * @return true if event processing is normal
      * @throws Exception thrown if a problem occurs during action performing
      */
-    void handleEvent(E event) throws Exception;
+    boolean handleEvent(E event) throws Exception;
 
 }

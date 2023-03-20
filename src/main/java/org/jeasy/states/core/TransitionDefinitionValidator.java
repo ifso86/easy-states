@@ -44,6 +44,7 @@ class TransitionDefinitionValidator {
         String transitionName = transition.getName();
         State sourceState = transition.getSourceState();
         State targetState = transition.getTargetState();
+        State abnormalState = transition.getAbnormalState();
 
         if (sourceState == null) {
             throw new IllegalArgumentException("No source state is defined for transition '" + transitionName + "'");
@@ -59,6 +60,9 @@ class TransitionDefinitionValidator {
         }
         if (!finiteStateMachine.getStates().contains(targetState)) {
             throw new IllegalArgumentException("target state '" + targetState.getName() + "' is not registered in FSM states for transition '" + transitionName + "'");
+        }
+        if (abnormalState != null && !finiteStateMachine.getStates().contains(abnormalState)) {
+            throw new IllegalArgumentException("target state '" + abnormalState.getName() + "' is not registered in FSM states for transition '" + transitionName + "'");
         }
     }
 

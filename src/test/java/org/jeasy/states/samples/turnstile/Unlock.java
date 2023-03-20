@@ -29,9 +29,10 @@ import org.jeasy.states.api.EventHandler;
 
 class Unlock implements EventHandler<CoinEvent> {
 
-    public void handleEvent(CoinEvent event) {
+    public boolean handleEvent(CoinEvent event) {
         System.out.println("Notified about event '" + event.getName() + "' triggered at " + new Date(event.getTimestamp()));
         System.out.println("Unlocking turnstile..");
+        return true;
     }
 
 }

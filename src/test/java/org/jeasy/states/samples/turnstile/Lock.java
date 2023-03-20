@@ -29,9 +29,10 @@ import org.jeasy.states.api.EventHandler;
 
 class Lock implements EventHandler<PushEvent> {
 
-    public void handleEvent(PushEvent event) {
+    public boolean handleEvent(PushEvent event) {
         System.out.println("Notified about event '" + event.getName() + "' triggered at " + new Date(event.getTimestamp()));
         System.out.println("Locking turnstile..");
+        return true;
     }
 
 }
